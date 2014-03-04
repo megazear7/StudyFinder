@@ -1,28 +1,51 @@
-== README
+== Instructions For Initial Repo Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To clone this repo and getting access to push / pull and so forth run the following command:
 
-Things you may want to cover:
+$ git clone https://github.com/megazear7/StudyFinder.git
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* This will create a directory called StudyFinder.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Instructions On Running a Basic Rails App (such as this one)
+
+move into the directory and then run the following command:
+
+$ rails s
+
+or
+
+$ rails server
+
+ * They're the same command just the first is shortened
+
+After this you can go to "localhost:3000" and see the web app.
+
+As long as it is not broken you should see something (that is whatever we have made our home page to into)
+
+== What I did to do get this far
+
+ * Note: You do not need to do this, but I wanted to explain the initial rails setup that I did.
+
+I created a empty repo on github.
+
+Then I did the following:
+
+$ rails new StudyFinder
+$ cd StudyFinder
+$ git init
+$ git remote add origin https://github.com/megazear7/StudyFinder.git
+$ git add .
+$ git commit -m "init commit"
+$ git push origin master
+
+If you follow the above steps you can easily create a github controlled rails app.
+
+== Linux vs. Windows
+
+ * I used linux for all of this
+ * I do not know how to use git on windows, but if you guys are on windows then you are probably figuring it out.
+ * I do not know how to use ruby / rails on windows.
+ * ... linux :)
+
+If anyone feels like adding anything to this README modify the README.rdoc file in the root directory, following the markup that is already in there, i.e. '*' for bullet points and '==' for big text and whatever else.
