@@ -34,11 +34,17 @@ I created a empty repo on github.
 Then I did the following:
 
 $ rails new StudyFinder
+
 $ cd StudyFinder
+
 $ git init
+
 $ git remote add origin https://github.com/megazear7/StudyFinder.git
+
 $ git add .
+
 $ git commit -m "init commit"
+
 $ git push origin master
 
 If you follow the above steps you can easily create a github controlled rails app.
