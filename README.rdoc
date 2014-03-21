@@ -9,7 +9,7 @@ $ git clone https://github.com/megazear7/StudyFinder.git
 
 == Instructions On Running a Basic Rails App
 
-* I.E. how to run this rails app
+ * I.E. how to run this rails app
 
 move into the directory (StudyFinder that is) and then run the following command:
 
@@ -19,7 +19,7 @@ or
 
 $ rails server
 
-* They're the same command just the first is shortened
+ * They're the same command just the first is shortened
 
 After this you can go to "localhost:3000" and see the web app.
 
@@ -27,7 +27,7 @@ As long as it is not broken you should see something (that is whatever we have m
 
 == What I did to do get this far
 
-* Note: You do not need to do this, but I wanted to explain the initial rails setup that I did.
+ * Note: You do not need to do this, but I wanted to explain the initial rails setup that I did.
 
 I created a empty repo on github.
 
@@ -51,9 +51,9 @@ If you follow the above steps you can easily create a github controlled rails ap
 
 == Linux vs. Windows
 
-* I used linux for all of this
-* I do not know how to use git on windows, but if you guys are on windows then you are probably figuring it out.
-* I do not know how to use ruby / rails on windows.
-* ... linux :)
+ * I used linux for all of this
+ * I do not know how to use git on windows, but if you guys are on windows then you are probably figuring it out.
+ * I do not know how to use ruby / rails on windows.
+ * ... linux :)
 
 If anyone feels like adding anything to this README modify the README.rdoc file in the root directory, following the markup that is already in there, i.e. '*' for bullet points and '==' for big text and whatever else.
