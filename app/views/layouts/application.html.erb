@@ -12,20 +12,41 @@
 
   <br/>
 
-  <% if not current_user %>
-    <%= link_to "Login", new_user_session_path, :method => :get %> |
-    <%= link_to "Signup", new_user_registration_path, :method => :get %>
-  <% else %>
-    Signed in as: <%= current_user.email %> |
-    <%= link_to "Logout", destroy_user_session_path, :method => :delete %> |
-    <%= link_to "Edit User Information", edit_user_registration_path, :method => :get %>
-  <% end %>
+  <div class="row">
+    <div class="col-md-6 pull-left">
+      <%= link_to "Available Schools", schools_path, :method => :get %>
+    </div>
+    <% if not current_user %>
+      <div class="pull-right">
+        <%= link_to "Login", new_user_session_path, :method => :get %> |
+        <%= link_to "Signup", new_user_registration_path, :method => :get %>
+      </div>
+    <% else %>
+      <div class="pull-right">
+        <%= current_user.email %> |
+        <%= link_to "Edit User Information", edit_user_registration_path, :method => :get %> |
+        <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+      </div>
+    <% end %>
+  </div>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <br/>
+
+  <div class="row">
+    <% if notice %>
+      <div class="col-md-12 alert alert-success">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="col-md-12 alert alert-error">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+
+  </div>
 
   <%= yield %>
-
 </div>
 
 </body>
