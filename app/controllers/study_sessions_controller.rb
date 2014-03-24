@@ -1,5 +1,6 @@
 class StudySessionsController < ApplicationController
   before_action :set_study_session, only: [:show, :edit, :update, :destroy]
+  before_action :set_room, only: [:new, :create, :show, :edit, :update, :destroy]
 
   # GET /study_sessions
   # GET /study_sessions.json
@@ -24,11 +25,12 @@ class StudySessionsController < ApplicationController
   # POST /study_sessions
   # POST /study_sessions.json
   def create
-    @study_session = StudySession.new(study_session_params)
+    @study_session = @room.study_sessions.new(study_session_params)
+
 
     respond_to do |format|
       if @study_session.save
-        format.html { redirect_to @study_session, notice: 'Study session was successfully created.' }
+        format.html { redirect_to room_study_session_path(@study_session.room, @study_session), notice: 'Study session was successfully created.' }
         format.json { render action: 'show', status: :created, location: @study_session }
       else
         format.html { render action: 'new' }
@@ -42,7 +44,7 @@ class StudySessionsController < ApplicationController
   def update
     respond_to do |format|
       if @study_session.update(study_session_params)
-        format.html { redirect_to @study_session, notice: 'Study session was successfully updated.' }
+        format.html { redirect_to room_study_session_path(@study_session.room, @study_session), notice: 'Study session was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -67,8 +69,12 @@ class StudySessionsController < ApplicationController
       @study_session = StudySession.find(params[:id])
     end
 
+    def set_room
+      @room = Room.find(params[:room_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def study_session_params
-      params.require(:study_session).permit(:room_id)
+      params.require(:study_session).permit(:room_id, :name, :summary)
     end
 end

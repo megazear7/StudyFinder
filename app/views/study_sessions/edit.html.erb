@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @study_session %> |
-<%= link_to 'Back', study_sessions_path %>
+<%= link_to 'Show', room_study_session_path(@study_session.room, @study_session) %> |
+<%= link_to 'Back', room_study_session_path(@study_session.room, @study_session) %>

@@ -22,9 +22,6 @@
     <div class="col-md-2 pull-left">
       <%= link_to "Available Rooms", rooms_path, :method => :get %>
     </div>
-    <div class="col-md-2 pull-left">
-      <%= link_to "Available Study Sessions", study_sessions_path, :method => :get %>
-    </div>
     <% if not current_user %>
       <div class="col-md-3 pull-right">
         <%= link_to "Login", new_user_session_path, :method => :get %> |

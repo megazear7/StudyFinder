@@ -5,9 +5,9 @@ StudyFinder::Application.routes.draw do
 
   resources :notes
 
-  resources :study_sessions
-
-  resources :rooms
+  resources :rooms do
+    resources :study_sessions
+  end
 
   resources :buildings
 

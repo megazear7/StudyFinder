@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<h3>Study Session: <%= @study_session.name %></h3>
+<p>In room <%= link_to @study_session.room.room_number, @study_session.room %> in <%= link_to @study_session.room.building.name, @study_session.room.building %> at <%= link_to @study_session.room.building.school.name, @study_session.room.building.school %></p>
+
 <p>
-  <strong>Room:</strong>
-  <%= @study_session.room %>
+  Summary of this study session:
+  <br/>
+  <%= @study_session.summary %>
 </p>
 
-<%= link_to 'Edit', edit_study_session_path(@study_session) %> |
-<%= link_to 'Back', study_sessions_path %>
+<%= link_to 'Edit', edit_room_study_session_path(@study_session.room, @study_session) %> |
+<%= link_to 'Back', room_path(@study_session.room) %>
