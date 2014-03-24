@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Study session:</strong>
-  <%= @note.study_session %>
+  <strong>Info In This Note:</strong>
+  <%= @note.summary %>
 </p>
 
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+<%= link_to 'Edit', edit_room_study_session_note_path(@room, @study_session, @note) %> |
+<%= link_to 'Back To The Study Session: ' + @study_session.name, room_study_session_path(@room, @study_session) %>

@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @note %> |
-<%= link_to 'Back', notes_path %>
+<%= link_to 'Show', room_study_session_notes_path(@note.study_session.room, @note.study_session, @note) %> |
+<%= link_to 'Back', room_study_session_notes_path %>

@@ -13,7 +13,34 @@
   Note to the team working on this website:<br/>
   Some more magic happens here. This is where people should be able to upload notes that they have created for this study session<br/>
   This will enable them to share and collaborate in there studing
-  For now I will just give a link to create new notes for this study session:<%=  %>
+  For now I will just give a link to create new notes for this study session:<%= link_to 'Add notes to this study session', new_room_study_session_note_path(@study_session.room, @study_session) %>
+
+  <br/>
+
+  <table class="table table-hover table-responsive">
+
+    <thead>
+      <tr>
+        <th>Note</th>
+        <th>Edit</th>
+        <th>Destroy</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @study_session.notes.each do |note| %>
+        <tr>
+          <td><%= note.summary %></td>
+          <td><%= link_to 'Edit', edit_room_study_session_note_path(note.study_session.room, note.study_session, note) %></td>
+          <td><%= link_to 'Destroy',  room_study_session_note_path(note.study_session.room, note.study_session, note), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<br/>
+
+
 </p>
 
 <%= link_to 'Edit Study Session', edit_room_study_session_path(@study_session.room, @study_session) %> |

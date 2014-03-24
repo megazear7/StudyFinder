@@ -1,5 +1,7 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_study_session, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :set_room, only: [:new, :create, :show, :edit, :update, :destroy]
 
   # GET /notes
   # GET /notes.json
@@ -24,11 +26,11 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @note = Note.new(note_params)
+    @note = @study_session.notes.new(note_params)
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+        format.html { redirect_to room_study_session_note_path(@note.study_session.room, @note.study_session, @note), notice: 'Note was successfully created.' }
         format.json { render action: 'show', status: :created, location: @note }
       else
         format.html { render action: 'new' }
@@ -42,7 +44,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+        format.html { redirect_to room_study_session_note_path(@note.study_session.room, @note.study_session, @note), notice: 'Note was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +58,7 @@ class NotesController < ApplicationController
   def destroy
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to notes_url }
+      format.html { redirect_to room_study_session_url(@study_session, @study_session.room) }
       format.json { head :no_content }
     end
   end
@@ -67,8 +69,16 @@ class NotesController < ApplicationController
       @note = Note.find(params[:id])
     end
 
+    def set_study_session
+      @study_session = StudySession.find(params[:study_session_id])
+    end
+
+    def set_room
+      @room = Room.find(params[:room_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:study_session_id)
+      params.require(:note).permit(:study_session_id, :room_id, :summary)
     end
 end
