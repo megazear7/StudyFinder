@@ -1,5 +1,6 @@
 StudyFinder::Application.routes.draw do
 
+  devise_for :users
   root 'schools#index'
 
   resources :notes
