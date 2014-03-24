@@ -1,9 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Building:</strong>
-  <%= @room.building %>
+  <strong>School:</strong>
+  <%= @room.building.school.name %>
 </p>
 
-<%= link_to 'Edit', edit_room_path(@room) %> |
+<p>
+  <strong>Building:</strong>
+  <%= @room.building.name %>
+</p>
+
+<p>
+This is where some of the magic starts happening. From here we need to list of available times for this room, maybe in an easy to understand calender format, also we will need to be able to get to the create new study session screen from here etc...
+<br/>
+<br/>
+For now I will just put a link:
+<%= link_to 'Create New Study Session In This Room', new_study_session_path %>
+<br/>
+<br/>
+</p>
+
+<%= link_to 'Edit Room', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
