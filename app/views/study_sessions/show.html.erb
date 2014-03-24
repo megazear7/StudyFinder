@@ -9,5 +9,12 @@
   <%= @study_session.summary %>
 </p>
 
-<%= link_to 'Edit', edit_room_study_session_path(@study_session.room, @study_session) %> |
-<%= link_to 'Back', room_path(@study_session.room) %>
+<p style="color:red"> 
+  Note to the team working on this website:<br/>
+  Some more magic happens here. This is where people should be able to upload notes that they have created for this study session<br/>
+  This will enable them to share and collaborate in there studing
+  For now I will just give a link to create new notes for this study session:<%=  %>
+</p>
+
+<%= link_to 'Edit Study Session', edit_room_study_session_path(@study_session.room, @study_session) %> |
+<%= link_to 'Back To ' + @study_session.room.building.name + " " + @study_session.room.room_number, room_path(@study_session.room) %>
