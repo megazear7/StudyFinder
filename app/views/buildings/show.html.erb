@@ -2,8 +2,33 @@
 
 <p>
   <strong>School:</strong>
-  <%= @building.school %>
+  <%= @building.school.name %>
 </p>
+
+<table class="table table-hover table-responsive">
+
+  <thead>
+    <tr>
+      <th>Room Number</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @building.rooms.each do |room| %>
+      <tr>
+        <td><%= link_to room.room_number, room %></td>
+        <td><%= link_to 'Edit', edit_room_path(room) %></td>
+        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+
 
 <%= link_to 'Edit', edit_building_path(@building) %> |
 <%= link_to 'Back', buildings_path %>

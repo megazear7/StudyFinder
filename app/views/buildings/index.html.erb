@@ -1,10 +1,9 @@
 <h1>Listing buildings</h1>
 
-<table>
+<table class="table table-hover table-responsive">
   <thead>
     <tr>
       <th>School</th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -13,8 +12,7 @@
   <tbody>
     <% @buildings.each do |building| %>
       <tr>
-        <td><%= building.school %></td>
-        <td><%= link_to 'Show', building %></td>
+        <td><%= link_to building.name, building %></td>
         <td><%= link_to 'Edit', edit_building_path(building) %></td>
         <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
