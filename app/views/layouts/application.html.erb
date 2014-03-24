@@ -8,19 +8,25 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <br/>
 
-<% if not current_user %>
-	<%= link_to "Login", new_user_session_path, :method => :get %> |
-	<%= link_to "Signup", new_user_registration_path, :method => :get %>
-<% else %>
-	Signed in as: <%= current_user.email %> |
-	<%= link_to "Logout", destroy_user_session_path, :method => :delete %> |
-	<%= link_to "Edit User Information", edit_user_registration_path, :method => :get %>
-<% end %>
+  <% if not current_user %>
+    <%= link_to "Login", new_user_session_path, :method => :get %> |
+    <%= link_to "Signup", new_user_registration_path, :method => :get %>
+  <% else %>
+    Signed in as: <%= current_user.email %> |
+    <%= link_to "Logout", destroy_user_session_path, :method => :delete %> |
+    <%= link_to "Edit User Information", edit_user_registration_path, :method => :get %>
+  <% end %>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <%= yield %>
+
+</div>
 
 </body>
 </html>

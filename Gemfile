@@ -30,6 +30,12 @@ gem 'jbuilder', '~> 1.2'
 # Use devise for members
 gem 'devise'
 
+# Use bootstrap
+gem 'bootstrap-sass', '~> 3.0.3.0'
+
+# Use active link
+gem 'active_link_to'
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
