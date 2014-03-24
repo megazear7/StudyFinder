@@ -13,17 +13,27 @@
   <br/>
 
   <div class="row">
-    <div class="col-md-6 pull-left">
+    <div class="col-md-2 pull-left">
       <%= link_to "Available Schools", schools_path, :method => :get %>
     </div>
+    <div class="col-md-2 pull-left">
+      <%= link_to "Available Buildings", buildings_path, :method => :get %>
+    </div>
+    <div class="col-md-2 pull-left">
+      <%= link_to "Available Rooms", rooms_path, :method => :get %>
+    </div>
+    <div class="col-md-2 pull-left">
+      <%= link_to "Available Study Sessions", study_sessions_path, :method => :get %>
+    </div>
     <% if not current_user %>
-      <div class="pull-right">
+      <div class="col-md-3 pull-right">
         <%= link_to "Login", new_user_session_path, :method => :get %> |
         <%= link_to "Signup", new_user_registration_path, :method => :get %>
       </div>
     <% else %>
-      <div class="pull-right">
-        <%= current_user.email %> |
+      <div class="col-md-3 pull-right">
+        <%= current_user.email %>
+		<br/>
         <%= link_to "Edit User Information", edit_user_registration_path, :method => :get %> |
         <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
       </div>

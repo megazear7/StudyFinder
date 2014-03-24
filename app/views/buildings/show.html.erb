@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>School:</strong>
-  <%= @building.school.name %>
-</p>
+<h3>Rooms in <%= @building.name %> at <%= link_to @building.school.name, @building.school %></h3>
 
 <table class="table table-hover table-responsive">
 

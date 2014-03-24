@@ -1,14 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>School:</strong>
-  <%= @room.building.school.name %>
-</p>
-
-<p>
-  <strong>Building:</strong>
-  <%= @room.building.name %>
-</p>
+<h3>Room <%= @room.room_number %> in <%= link_to @room.building.name, @room.building %> at <%= link_to @room.building.school.name, @room.building.school %></h3>
 
 <p>
 This is where some of the magic starts happening. From here we need to list of available times for this room, maybe in an easy to understand calender format, also we will need to be able to get to the create new study session screen from here etc...
