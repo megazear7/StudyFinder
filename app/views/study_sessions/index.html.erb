@@ -1,20 +1,18 @@
-<h1>Listing study_sessions</h1>
+<h3>All Available Study Sessions</h3>
 
 <table>
   <thead>
     <tr>
       <th>Room</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Edit</th>
+      <th>Destroy</th>
     </tr>
   </thead>
 
   <tbody>
     <% @study_sessions.each do |study_session| %>
       <tr>
-        <td><%= study_session.room %></td>
-        <td><%= link_to 'Show', study_session %></td>
+        <td><%= link_to study_session.room, study_session %></td>
         <td><%= link_to 'Edit', edit_study_session_path(study_session) %></td>
         <td><%= link_to 'Destroy', study_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
