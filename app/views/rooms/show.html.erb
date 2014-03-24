@@ -3,14 +3,42 @@
 <h3>Room <%= @room.room_number %> in <%= link_to @room.building.name, @room.building %> at <%= link_to @room.building.school.name, @room.building.school %></h3>
 
 <p>
-This is where some of the magic starts happening. From here we need to list of available times for this room, maybe in an easy to understand calender format, also we will need to be able to get to the create new study session screen from here etc...
-<br/>
-<br/>
-For now I will just put a link:
-<%= link_to 'Create New Study Session In This Room', new_room_study_session_path(@room) %>
-<br/>
-<br/>
+  This is where some of the magic starts happening. From here we need to list of available times for this room, maybe in an easy to understand calender format, also we will need to be able to get to the create new study session screen from here etc...
+<p/>
+
+<p>
+  For now I will just put a link to create a new study session:
+  <%= link_to 'Create New Study Session In This Room', new_room_study_session_path(@room) %>
+<p/>
+
+<p>
+  And list all the study sessions for this room:
 </p>
 
+<table class="table table-hover table-responsive">
+
+  <thead>
+    <tr>
+      <th>Study Session Name</th>
+      <th>Summary</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @room.study_sessions.each do |study_session| %>
+      <tr>
+        <td><%= link_to study_session.name, room_study_session_path(study_session.room, study_session) %></td>
+        <td><%= study_session.summary %></td>
+        <td><%= link_to 'Edit', edit_room_study_session_path(study_session.room, study_session) %></td>
+        <td><%= link_to 'Destroy',  room_study_session_path(study_session.room, study_session), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+
 <%= link_to 'Edit Room', edit_room_path(@room) %> |
-<%= link_to 'Back', rooms_path %>
+<%= link_to 'Back To Available ' + @room.building.name  + ' Rooms', building_path(@room.building) %>

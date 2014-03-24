@@ -58,7 +58,7 @@ class StudySessionsController < ApplicationController
   def destroy
     @study_session.destroy
     respond_to do |format|
-      format.html { redirect_to study_sessions_url }
+      format.html { redirect_to room_url(@room) }
       format.json { head :no_content }
     end
   end
