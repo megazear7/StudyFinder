@@ -36,6 +36,9 @@ gem 'bootstrap-sass', '~> 3.0.3.0'
 # Use active link
 gem 'active_link_to'
 
+# Use seed dump to make seed database
+gem 'seed_dump'
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
