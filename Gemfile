@@ -42,8 +42,13 @@ gem 'seed_dump'
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'sqlite3'
 end
 
+group :production do
+  # Heroku needs to use postgres
+  gem 'pg'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
