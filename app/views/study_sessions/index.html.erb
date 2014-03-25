@@ -1,8 +1,9 @@
 <h3>All Available Study Sessions</h3>
 
-<table>
+<table class="table table-hover table-responsive">
   <thead>
     <tr>
+      <th>Name</th>
       <th>Room</th>
       <th>Edit</th>
       <th>Destroy</th>
@@ -12,14 +13,13 @@
   <tbody>
     <% @study_sessions.each do |study_session| %>
       <tr>
-        <td><%= link_to study_session.room, study_session %></td>
-        <td><%= link_to 'Edit', edit_study_session_path(study_session) %></td>
-        <td><%= link_to 'Destroy', study_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to study_session.name, room_study_session_path(study_session.room, study_session) %></td>
+        <td><%= study_session.room.building.name + " room " + study_session.room.room_number %></td>
+        <td><%= link_to 'Edit', edit_room_study_session_path(study_session.room, study_session) %></td>
+        <td><%= link_to 'Destroy', room_study_session_path(study_session.room, study_session), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Study session', new_study_session_path %>

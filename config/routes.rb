@@ -9,6 +9,8 @@ StudyFinder::Application.routes.draw do
     end
   end
 
+  get 'all_study_sessions' => 'study_sessions#index'
+
   resources :buildings
 
   resources :schools
