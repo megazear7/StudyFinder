@@ -11,21 +11,17 @@
     </div>
   <% end %>
 
-  <div class="actions">
+  <%= f.label :name, "School Name" %><br/>
+  <%= f.text_field :name %><br/><br/>
 
-    <%= f.label :name, "School Name" %><br/>
-    <%= f.text_field :name %><br/><br/>
+  <p>Add, Remove or Modify buildings at this school:</p>
 
-    <p>Add, Remove or Modify buildings at this school:</p>
+  <%= f.fields_for :buildings do |builder | %>
+    <%= render 'building_fields', :f => builder %>
+  <% end %>
 
-    <%= f.fields_for :buildings do |builder | %>
-      <%= render 'building_fields', :f => builder %>
-    <% end %>
+  <p><%= link_to_add_fields "Add Building", f, :buildings %></p>
 
-    <p><%= link_to_add_fields "Add Building", f, :buildings %></p>
-
-    <%= f.submit %>
-
-  </div>
+  <%= f.submit %>
 
 <% end %>

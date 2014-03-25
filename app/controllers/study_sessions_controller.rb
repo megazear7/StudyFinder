@@ -27,7 +27,6 @@ class StudySessionsController < ApplicationController
   def create
     @study_session = @room.study_sessions.new(study_session_params)
 
-
     respond_to do |format|
       if @study_session.save
         format.html { redirect_to room_study_session_path(@study_session.room, @study_session), notice: 'Study session was successfully created.' }
