@@ -2,15 +2,7 @@
 
 <h3>Room <%= @room.room_number %> in <%= link_to @room.building.name, @room.building %> at <%= link_to @room.building.school.name, @room.building.school %></h3>
 
-<div style="color:red">
-  Note to the team working on this website:<br/>
-
-  <p>This is where some of the magic starts happening. From here we need to list of available times for this room, maybe in an easy to understand calender format, also we will need to be able to get to the create new study session screen from here etc...<p/>
-
-  <p>For now I will just put a link to create a new study session: <%= link_to 'Create New Study Session In This Room', new_room_study_session_path(@room) %><p/>
-
-  <p>And list all the study sessions for this room:</p>
-</div>
+<p><%= link_to 'Create New Study Session In This Room', new_room_study_session_path(@room) %><p/>
 
 <table class="table table-hover table-responsive">
 
