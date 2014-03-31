@@ -11,9 +11,17 @@
     </div>
   <% end %>
 
-  <%= f.label :room_number %><br/>
-  <%= f.text_field :room_number %><br/>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.label :room_number %><br/>
+      <%= f.text_field :room_number, :class => "string form-control" %><br/>
+    </div>
+  </div>
 
-  <%= f.submit %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.submit :class => "btn btn-primary" %>
+    </div>
+  </div>
   
 <% end %>

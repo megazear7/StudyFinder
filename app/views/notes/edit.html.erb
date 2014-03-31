@@ -12,13 +12,25 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= link_to 'Show', room_study_session_notes_path(@note.study_session.room, @note.study_session, @note) %> |
+  <%= link_to 'Back', room_study_session_notes_path %>
+  <br/>
+  <br/>
 
-  <%= f.label :summary %><br>
-  <%= f.text_field :summary %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.label :summary %><br>
+      <%= f.text_field :summary, :class => "string form-control" %>
+    </div>
+  </div>
 
-  <%= f.submit %>
+
+  <div class="row">
+    <div class="col-md-4">
+      <br/>
+      <%= f.submit :class => "btn btn-primary" %>
+    </div>
+  </div>
 
 <% end %>
-
-<%= link_to 'Show', room_study_session_notes_path(@note.study_session.room, @note.study_session, @note) %> |
-<%= link_to 'Back', room_study_session_notes_path %>

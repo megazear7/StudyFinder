@@ -13,11 +13,23 @@
     </div>
   <% end %>
 
-  <%= f.label :summary %><br>
-  <%= f.text_field :summary %>
+  <%= link_to 'Back', room_study_session_notes_path %>
+  <br/>
+  <br/>
 
-  <%= f.submit %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.label :summary %>
+      <%= f.text_field :summary, :class => "string form-control" %>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-4">
+      <br/>
+      <%= f.submit :class => "btn btn-primary" %>
+    </div>
+  </div>
 
 <% end %>
-
-<%= link_to 'Back', room_study_session_notes_path %>

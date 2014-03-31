@@ -11,17 +11,32 @@
     </div>
   <% end %>
 
-  <%= f.label :name, "Building Name" %><br/>
-  <%= f.text_field :name %><br/><br/>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.label :name, "Building Name" %><br/>
+      <%= f.text_field :name, :class => "string form-control" %><br/><br/>
+    </div>
+  </div>
 
-  <p>Add, Remove or Modify rooms at this building:</p>
+  <div class="row">
+    <div class="col-md-4">
+      <p>Add, Remove or Modify rooms at this building:</p>
+      <br/>
 
-  <%= f.fields_for :rooms do |builder | %>
-    <%= render 'room_fields', :f => builder %>
-  <% end %>
+      <%= f.fields_for :rooms do |builder | %>
+        <%= render 'room_fields', :f => builder %>
+      <% end %>
 
-  <p><%= link_to_add_fields "Add Room", f, :rooms %></p>
+      <p><%= link_to_add_fields "Add Room", f, :rooms %></p>
+    </div>
+  </div>
 
-  <%= f.submit %>
+  <div class="row">
+    <div class="col-md-4">
+      <br/>
+      <br/>
+      <%= f.submit :class => "btn btn-primary" %>
+    </div>
+  </div>
 
 <% end %>
