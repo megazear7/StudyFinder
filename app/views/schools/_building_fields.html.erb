@@ -1,8 +1,10 @@
 <div class="fields"> 
 
   <%= f.label :name, "Building Name" %><br/>
-  <%= f.text_field :name %><br/><br/>
+  <%= f.text_field :name, :class => "string form-control" %>
 
-  <%= link_to_remove_fields "Remove Building", f %><br/><br/>
+  <%= link_to_remove_fields "Remove Building", f %>
+  <br/>
+  <br/>
 
 </div>
