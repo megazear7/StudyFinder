@@ -6,6 +6,11 @@ class BuildingsController < ApplicationController
   # GET /buildings.json
   def index
     @buildings = Building.all
+
+    if current_user.school
+      @buildings = Building.where(school: current_user.school)
+    end
+
   end
 
   # GET /buildings/1
