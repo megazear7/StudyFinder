@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :study_sessions
   has_many :notes
+  belongs_to :school
 end
