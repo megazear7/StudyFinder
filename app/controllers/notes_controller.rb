@@ -2,6 +2,7 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :set_study_session, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :set_room, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :new, :create, :destroy]
 
   # GET /notes
   # GET /notes.json
