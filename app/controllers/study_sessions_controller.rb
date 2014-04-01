@@ -2,7 +2,7 @@ class StudySessionsController < ApplicationController
   before_action :set_study_session, only: [:show, :edit, :update, :destroy]
   before_action :set_room, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :new, :create, :destroy]
-  before_action :validate_owner, only: [:edit, :update, :new, :create, :destroy]
+  before_action :validate_owner, only: [:edit, :update, :destroy]
 
   # GET /study_sessions
   # GET /study_sessions.json
