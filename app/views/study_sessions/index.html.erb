@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Owner</th>
       <th>Room</th>
       <th>Edit</th>
       <th>Destroy</th>
@@ -14,6 +15,7 @@
     <% @study_sessions.each do |study_session| %>
       <tr>
         <td><%= link_to study_session.name, room_study_session_path(study_session.room, study_session) %></td>
+        <td><%= link_to study_session.user.email %></td>
         <td><%= study_session.room.building.name + " room " + study_session.room.room_number %></td>
         <td><%= link_to 'Edit', edit_room_study_session_path(study_session.room, study_session) %></td>
         <td><%= link_to 'Destroy', room_study_session_path(study_session.room, study_session), method: :delete, data: { confirm: 'Are you sure?' } %></td>

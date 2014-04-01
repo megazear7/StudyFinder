@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140324192554) do
+ActiveRecord::Schema.define(version: 20140401015249) do
 
   create_table "buildings", force: true do |t|
     t.integer  "school_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140324192554) do
     t.string   "summary"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "notes", ["study_session_id"], name: "index_notes_on_study_session_id"
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140324192554) do
     t.time     "time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "study_sessions", ["room_id"], name: "index_study_sessions_on_room_id"

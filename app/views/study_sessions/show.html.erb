@@ -16,6 +16,7 @@
 <thead>
   <tr>
 	<th>Note</th>
+  <th>Author</th>
 	<th>Edit</th>
 	<th>Destroy</th>
   </tr>
@@ -25,6 +26,7 @@
   <% @study_session.notes.each do |note| %>
 	<tr>
 	  <td><%= note.summary %></td>
+    <td><%= note.user.email %></td>
 	  <td><%= link_to 'Edit', edit_room_study_session_note_path(note.study_session.room, note.study_session, note) %></td>
 	  <td><%= link_to 'Destroy',  room_study_session_note_path(note.study_session.room, note.study_session, note), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	</tr>

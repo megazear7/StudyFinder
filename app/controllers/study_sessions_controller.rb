@@ -2,6 +2,7 @@ class StudySessionsController < ApplicationController
   before_action :set_study_session, only: [:show, :edit, :update, :destroy]
   before_action :set_room, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :new, :create, :destroy]
+  before_action :validate_owner, only: [:edit, :update, :new, :create, :destroy]
 
   # GET /study_sessions
   # GET /study_sessions.json
@@ -68,6 +69,13 @@ class StudySessionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+    def validate_owner
+      if current_user != @study_session.user 
+        redirect_to room_study_session_path(@study_session.room, @study_session), notice: 'You are not allowed to edit that note: It is not yours'
+      end
+    end
+
     def set_study_session
       @study_session = StudySession.find(params[:id])
     end
@@ -78,6 +86,6 @@ class StudySessionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def study_session_params
-      params.require(:study_session).permit(:room_id, :name, :summary)
+      params.require(:study_session).permit(:room_id, :user_id, :name, :summary)
     end
 end
