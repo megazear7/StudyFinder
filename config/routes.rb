@@ -3,6 +3,9 @@ StudyFinder::Application.routes.draw do
   devise_for :users
   root 'schools#index'
 
+  get 'choose_school' => 'users#choose_school'
+  patch 'choose_school' => 'users#choose_school_set'
+
   resources :rooms do
     resources :study_sessions do
       resources :notes

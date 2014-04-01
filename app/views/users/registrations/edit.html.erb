@@ -15,11 +15,10 @@
       <%= f.label :email %><br />
       <%= f.email_field :email, :autofocus => true, :class => "string form-control" %>
   	</div>
-    <div class="col-md-3">
-      <%= f.label :school %><br />
-      <% school_array = School.all.map { |school| [school.name, school.id] } %>
-      <%= select_tag :school_id, options_for_select(school_array), :class => "select form-control" %>
-      </div>
+    <div class="col-md-5">
+      Your Home School is: <%= current_user.school.name %><br/>
+      <%= link_to "Change Your Home School", choose_school_path %>
+  	</div>
   </div>
   <br/>
 
