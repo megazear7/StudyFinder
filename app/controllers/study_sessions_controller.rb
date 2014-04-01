@@ -72,7 +72,7 @@ class StudySessionsController < ApplicationController
 
     def validate_owner
       if current_user != @study_session.user 
-        redirect_to room_study_session_path(@study_session.room, @study_session), notice: 'You are not allowed to edit that note: It is not yours'
+        redirect_to room_study_session_path(@study_session.room, @study_session), alert: 'You are not allowed to edit that Study Session: It is not yours. However you may add notes to it.'
       end
     end
 

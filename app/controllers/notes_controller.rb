@@ -70,7 +70,7 @@ class NotesController < ApplicationController
 
     def validate_owner
       if current_user != @note.user 
-        redirect_to room_study_session_path(@note.study_session.room, @note.study_session), notice: 'You are not allowed to edit that note: It is not yours'
+        redirect_to room_study_session_path(@note.study_session.room, @note.study_session), alert: 'You are not allowed to edit that note: It is not yours. However you may add your own note.'
       end
     end
 
