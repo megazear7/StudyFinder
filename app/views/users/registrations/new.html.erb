@@ -27,6 +27,15 @@
   </div>
   <br/>
 
+  <div class="row">
+    <div class="col-md-3">
+      <%= f.label :school %>
+      <% school_array = School.all.map { |school| [school.name, school.id] } %>
+      <%= f.select :school_id, options_for_select(school_array), {}, { :class => "select form-control" } %>
+  	</div>
+  </div>
+  <br/>
+
   <div><%= f.submit "Sign up", :class => "btn btn-primary" %></div>
   <br/>
 <% end %>

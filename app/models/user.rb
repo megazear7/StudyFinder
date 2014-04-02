@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   has_many :study_sessions
   has_many :notes
   belongs_to :school
+  validates :school, presence: true
 end

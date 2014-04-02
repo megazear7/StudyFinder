@@ -6,9 +6,11 @@ class BuildingsController < ApplicationController
   # GET /buildings.json
   def index
     @buildings = Building.all
+    @title = "All Available Buildings"
 
-    if current_user.school
-      @buildings = Building.where(school: current_user.school)
+    if current_user
+      @buildings = Building.where(school_id: current_user.school.id)
+      @title = "Buildings at " + current_user.school.name
     end
 
   end
