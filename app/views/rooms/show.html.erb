@@ -2,7 +2,8 @@
 
 <h3>Room <%= @room.room_number %> in <%= link_to @room.building.name, @room.building %> at <%= link_to @room.building.school.name, @room.building.school %></h3>
 
-<p><%= link_to 'Create New Study Session In This Room', new_room_study_session_path(@room) %><p/>
+Create New Study Session In This Room: 
+<p><%= link_to 'Create Study Session', new_room_study_session_path(@room), :class =>"btn btn-default" %><p/>
 
 <table class="table table-hover table-responsive">
 

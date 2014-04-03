@@ -9,7 +9,8 @@
   <%= @study_session.summary %>
 </p>
 
-<p><%= link_to 'Add a Note to This Study Session', new_room_study_session_note_path(@study_session.room, @study_session) %></p>
+Add a Note to This Study Session:
+<p><%= link_to 'Create Note', new_room_study_session_note_path(@study_session.room, @study_session), :class => "btn btn-default" %></p>
 
 <table class="table table-hover table-responsive">
 

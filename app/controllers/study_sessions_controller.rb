@@ -11,8 +11,8 @@ class StudySessionsController < ApplicationController
     @title = "All Available Study Sessions"
 
     if current_user
-      @rooms = current_user.school.study_sessions
-      @title = "Study Sessions at " + current_user.school.name
+      #@rooms = current_user.school.study_sessions
+      #@title = "Study Sessions at " + current_user.school.name
     end
 
   end
