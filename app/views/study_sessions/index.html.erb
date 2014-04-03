@@ -4,7 +4,11 @@
   </div>
   <div class="pull-right">
     <br/>
-      <%= link_to "View All Study Sessions", all_study_sessions_path(all: 'true') %>
+      <% if @all %>
+        <%= link_to "View Only Study Sessions at " + current_user.school.name, all_study_sessions_path %>
+      <% else %>
+        <%= link_to "View All Study Sessions", all_study_sessions_path(all: 'true') %>
+      <% end %>
   </div>
 </div>
 

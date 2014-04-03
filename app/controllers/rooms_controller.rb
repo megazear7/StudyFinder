@@ -7,10 +7,12 @@ class RoomsController < ApplicationController
   def index
     @rooms = Room.all
     @title = "All Available Rooms"
+    @all = true
 
     if current_user and params[:all] != "true"
       @rooms = current_user.school.rooms
       @title = "Rooms at " + current_user.school.name
+      @all = false
     end
 
   end

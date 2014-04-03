@@ -8,10 +8,12 @@ class BuildingsController < ApplicationController
 
     @buildings = Building.all
     @title = "All Available Buildings"
+    @all = true
 
     if current_user and params[:all] != "true"
       @buildings = Building.where(school_id: current_user.school.id)
       @title = "Buildings at " + current_user.school.name
+      @all = false
     end
 
   end

@@ -9,10 +9,12 @@ class StudySessionsController < ApplicationController
   def index
     @study_sessions = StudySession.all
     @title = "All Available Study Sessions"
+    @all = true
 
     if current_user and params[:all] != "true"
       @rooms = current_user.school.study_sessions
       @title = "Study Sessions at " + current_user.school.name
+      @all = false
     end
 
   end

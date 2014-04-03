@@ -4,7 +4,11 @@
   </div>
   <div class="pull-right">
     <br/>
-      <%= link_to "View All Buildings", buildings_path(all: 'true') %>
+      <% if @all %>
+        <%= link_to "View Only Buildings at " + current_user.school.name, buildings_path %>
+      <% else %>
+        <%= link_to "View All Buildings", buildings_path(all: 'true') %>
+      <% end %>
   </div>
 </div>
 
