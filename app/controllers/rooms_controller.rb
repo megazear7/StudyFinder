@@ -8,7 +8,7 @@ class RoomsController < ApplicationController
     @rooms = Room.all
     @title = "All Available Rooms"
 
-    if current_user
+    if current_user and params[:all] != "true"
       @rooms = current_user.school.rooms
       @title = "Rooms at " + current_user.school.name
     end

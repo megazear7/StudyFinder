@@ -10,9 +10,9 @@ class StudySessionsController < ApplicationController
     @study_sessions = StudySession.all
     @title = "All Available Study Sessions"
 
-    if current_user
-      #@rooms = current_user.school.study_sessions
-      #@title = "Study Sessions at " + current_user.school.name
+    if current_user and params[:all] != "true"
+      @rooms = current_user.school.study_sessions
+      @title = "Study Sessions at " + current_user.school.name
     end
 
   end
