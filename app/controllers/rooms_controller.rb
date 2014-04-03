@@ -6,6 +6,13 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     @rooms = Room.all
+    @title = "All Available Rooms"
+
+    if current_user
+      @rooms = current_user.school.rooms
+      @title = "Rooms at " + current_user.school.name
+    end
+
   end
 
   # GET /rooms/1
