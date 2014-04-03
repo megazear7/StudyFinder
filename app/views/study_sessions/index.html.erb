@@ -4,9 +4,9 @@
   </div>
   <div class="pull-right">
     <br/>
-      <% if @all %>
+      <% if @all and current_user %>
         <%= link_to "View Only Study Sessions at " + current_user.school.name, all_study_sessions_path %>
-      <% else %>
+      <% elsif current_user %>
         <%= link_to "View All Study Sessions", all_study_sessions_path(all: 'true') %>
       <% end %>
   </div>
