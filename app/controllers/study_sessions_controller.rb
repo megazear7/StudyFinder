@@ -12,7 +12,7 @@ class StudySessionsController < ApplicationController
     @all = true
 
     if current_user and params[:all] != "true"
-      @rooms = current_user.school.study_sessions
+      @study_sessions = current_user.school.study_sessions
       @title = "Study Sessions at " + current_user.school.name
       @all = false
     end
