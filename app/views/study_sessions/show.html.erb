@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h3>Study Session: <%= @study_session.name %></h3>
-<p>In room <%= link_to @study_session.room.room_number, @study_session.room %> in <%= link_to @study_session.room.building.name, @study_session.room.building %> at <%= link_to @study_session.room.building.school.name, @study_session.room.building.school %></p>
 
 <p>
-  Summary of this study session:
+  <strong>Where: </strong>In room <%= link_to @study_session.room.room_number, @study_session.room %> in <%= link_to @study_session.room.building.name, @study_session.room.building %> at <%= link_to @study_session.room.building.school.name, @study_session.room.building.school %>
   <br/>
-  Time: <%= @study_session.meeting_time.strftime("%B %d, %Y, %I:%M %p") %>
+  <strong>When:  </strong><%= @study_session.meeting_time.strftime("%B %d, %Y, %I:%M %p") %>
   <br/>
-  <%= @study_session.summary %>
+  <strong>What:  </strong><%= @study_session.summary %>
+  <br/>
   <br/>
 </p>
 
