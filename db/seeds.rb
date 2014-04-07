@@ -1,9 +1,15 @@
+User.create!([
+  {email: "alexlockhart7@gmail.com", encrypted_password: "$2a$10$36BPf95lSMy9pXJ5jbgSOeg2WK6ONA7pqtJ3DKrhMj7ZwUbg8nQqK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 14, current_sign_in_at: "2014-04-07 19:53:38", last_sign_in_at: "2014-04-07 18:05:50", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", school_id: 1},
+  {email: "ghostalex7@hotmail.com", encrypted_password: "$2a$10$mhI9UR6eA1i3/QTOpSANtuadTw0fnlbhATi6pUdXSjOaqDIh5buJ.", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-04-01 02:13:48", last_sign_in_at: "2014-04-01 02:13:48", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", school_id: 1},
+  {email: "test@test.com", encrypted_password: "$2a$10$1gm/PDqjD9zCMfHN4urtme8jJI/DM828PDVqtDPWR8Sd04yWAYPcK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2014-04-03 00:52:32", last_sign_in_at: "2014-04-02 23:19:53", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", school_id: 4}
+])
 Building.create!([
   {school_id: 1, name: "Dreese"},
   {school_id: 1, name: "Caldwell"},
   {school_id: 1, name: "Hitchcock"},
   {school_id: 4, name: "Founders"},
-  {school_id: 4, name: "Co Hall"}
+  {school_id: 4, name: "Co Hall"},
+  {school_id: 5, name: "Library"}
 ])
 Note.create!([
   {study_session_id: 1, summary: "We should make sure to go over the stuff about graphs and stuff.", user_id: nil},
@@ -35,7 +41,8 @@ Room.create!([
 ])
 School.create!([
   {name: "Ohio State University"},
-  {name: "COTC"}
+  {name: "COTC"},
+  {name: "Test School"}
 ])
 StudySession.create!([
   {room_id: 3, name: "Testing", summary: "Summarry .... .... ... blah blah bah", date: nil, time: nil, user_id: 1, meeting_time: "2013-04-09 07:09:00"},
