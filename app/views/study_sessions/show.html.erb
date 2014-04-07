@@ -6,7 +6,10 @@
 <p>
   Summary of this study session:
   <br/>
+  Time: <%= @study_session.meeting_time.strftime("%B %d, %Y, %I:%M %p") %>
+  <br/>
   <%= @study_session.summary %>
+  <br/>
 </p>
 
 Add a Note to This Study Session:

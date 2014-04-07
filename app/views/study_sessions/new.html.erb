@@ -34,7 +34,7 @@
   <div class="row">
     <div class="col-md-4">
       <%= f.label :meeting_time %><br/>
-      <%= f.datetime_select :meeting_time, :class => "date form-control" %><br/>
+      <%= f.datetime_select :meeting_time, { default: 1.days.from_now, ampm: true }, { :class => "date form-control" } %><br/>
     </div>
   </div>
 
