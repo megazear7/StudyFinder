@@ -2,12 +2,8 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
-  test "the truth" do
-    assert true
-  end
-
   test "should save users that have all the correct information" do
-    user = FactoryGirl.create(:complete_user)
+    user = FactoryGirl.build(:complete_user)
     assert user.save
   end
 
