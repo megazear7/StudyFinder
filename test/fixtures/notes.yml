@@ -1,7 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  study_session_id: 
-
-two:
-  study_session_id: 
+  study_session_id: one
+  summary: Testing
+  user_id: user1

@@ -1,7 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  school_id: 
-
-two:
-  school_id: 
+dreese:
+  school_id: osu
+  name: Dreese 
