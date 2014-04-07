@@ -1,3 +1,7 @@
 <h2>Choose a building to add a room to</h2> 
-<%= render 'form' %>
+<div class="btn-toolbar">
+  <% current_user.school.buildings.each do |building| %>
+    <%= link_to building.name, edit_building_path(building), class: "btn btn-info" %>
+  <% end %>
+</div>
 <br/>
