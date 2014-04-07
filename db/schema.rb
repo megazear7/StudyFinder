@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401023658) do
+ActiveRecord::Schema.define(version: 20140407180253) do
 
   create_table "buildings", force: true do |t|
     t.integer  "school_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140401023658) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.datetime "meeting_time"
   end
 
   add_index "study_sessions", ["room_id"], name: "index_study_sessions_on_room_id"
