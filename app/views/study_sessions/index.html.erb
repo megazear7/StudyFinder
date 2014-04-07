@@ -5,9 +5,9 @@
   <div class="pull-right">
     <br/>
       <% if @all and current_user %>
-        <%= link_to "View Only Study Sessions at " + current_user.school.name, all_study_sessions_path %>
+        <%= link_to "View Only Study Sessions at " + current_user.school.name, all_study_sessions_path, class: "btn btn-success" %>
       <% elsif current_user %>
-        <%= link_to "View All Study Sessions", all_study_sessions_path(all: 'true') %>
+        <%= link_to "View All Study Sessions", all_study_sessions_path(all: 'true'), class: "btn btn-success" %>
       <% end %>
   </div>
 </div>

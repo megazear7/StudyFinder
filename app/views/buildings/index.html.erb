@@ -5,9 +5,9 @@
   <div class="pull-right">
     <br/>
       <% if @all and current_user %>
-        <%= link_to "View Only Buildings at " + current_user.school.name, buildings_path %>
+        <%= link_to "View Only Buildings at " + current_user.school.name, buildings_path, class: "btn btn-success" %>
       <% elsif current_user %>
-        <%= link_to "View All Buildings", buildings_path(all: 'true') %>
+        <%= link_to "View All Buildings", buildings_path(all: 'true'), class: "btn btn-success" %>
       <% end %>
   </div>
 </div>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Building', new_building_path, :class =>"btn btn-default" %>
+<%= link_to 'New Building', new_building_path, :class =>"btn btn-primary" %>
