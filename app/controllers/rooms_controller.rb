@@ -24,7 +24,13 @@ class RoomsController < ApplicationController
 
   # GET /rooms/new
   def new
-    @room = Room.new
+    if params[:all] == "true"
+      @buildings = Building.all
+      @title = "Choose a building to add a room to"
+    else
+      @buildings = current_user.school.buildings
+      @title = "Choose a building at " + current_user.school.name + " to add a room to"
+    end
   end
 
   # GET /rooms/1/edit
