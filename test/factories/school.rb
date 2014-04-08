@@ -3,7 +3,12 @@ FactoryGirl.define do
     name "Test School"
 
     factory :school_with_buildings do
-      association :building, factory: :building
+      ignore do
+        buildings_count 5
+      end
+      after(:create) do |school, evaluator|
+        create_list(:building, evaluator.building_count, school: school)
+      end
     end
 
   end

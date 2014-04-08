@@ -9,7 +9,7 @@ class SchoolTest < ActiveSupport::TestCase
 
   test "Save a school with buildings" do
     school = FactoryGirl.build(:school_with_buildings)
-    #school.save
+    school.save
   end
   
 end
