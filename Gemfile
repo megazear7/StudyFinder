@@ -30,6 +30,8 @@ gem 'devise'
 # Use bootstrap
 gem 'bootstrap-sass', '~> 3.0.3.0'
 
+# Use will_paginate
+gem 'will_paginate', '~> 3.0'
 # Use active link
 gem 'active_link_to'
 
