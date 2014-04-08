@@ -16,6 +16,14 @@ class BuildingsController < ApplicationController
       @all = false
     end
 
+    @search = params[:search] ? params[:search] : ""
+
+    if not @search.empty?
+      @buildings = @buildings.search(@search)
+    end
+
+    @buildings = @buildings.paginate(:page => params[:page], :per_page => 10)
+
   end
 
   # GET /buildings/1

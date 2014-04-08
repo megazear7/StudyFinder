@@ -12,7 +12,24 @@
   </div>
 </div>
 
-<%= will_paginate @rooms, renderer: BootstrapPagination::Rails, class: "pull-right" %>
+<div class="row">
+  <div class="col-md-8">
+    <br/>
+    <%= form_tag rooms_path, :method => 'get' do %>
+      <div class="col-md-4">
+        <%= text_field_tag :search, params[:search], class: "string form-control" %>
+      </div>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+        <%= link_to "Reset", rooms_path, :method => 'get', class: "btn btn-default" %>
+    <% end %>
+  </div>
+
+  <div class="col-md-4">
+    <%= will_paginate @rooms, renderer: BootstrapPagination::Rails, class: "pull-right" %>
+  </div>
+</div>
+
+
 <table class="table table-hover table-responsive">
   <thead>
     <tr>

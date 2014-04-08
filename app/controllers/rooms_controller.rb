@@ -6,15 +6,23 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     #@rooms = Room.all
-    @rooms = Room.paginate(:page => params[:page], :per_page => 10)
+    @rooms = Room.all
     @title = "All Available Rooms"
     @all = true
 
     if current_user and params[:all] != "true"
-      @rooms = current_user.school.rooms.paginate(:page => params[:page], :per_page => 10)
+      @rooms = current_user.school.rooms
       @title = "Rooms at " + current_user.school.name
       @all = false
     end
+
+    @search = params[:search] ? params[:search] : ""
+
+    if not @search.empty?
+      @rooms = @rooms.search(@search)
+    end
+
+    @rooms = @rooms.paginate(:page => params[:page], :per_page => 10)
 
   end
 
