@@ -4,12 +4,12 @@ class NoteTest < ActiveSupport::TestCase
 
   test "create basic, empty study session" do
     note = FactoryGirl.build(:note)
-    note.save
+    assert note.save
   end
 
   test "create full study session" do
     note = FactoryGirl.build(:note_complete)
-    note.save
+    assert note.save
   end
 
 end

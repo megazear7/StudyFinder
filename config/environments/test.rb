@@ -35,4 +35,7 @@ StudyFinder::Application.configure do
   config.active_support.deprecation = :stderr
 
   I18n.enforce_available_locales = false
+
+  ActiveSupport::Deprecation.silenced = true
+
 end
