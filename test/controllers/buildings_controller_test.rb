@@ -2,7 +2,9 @@ require 'test_helper'
 
 class BuildingsControllerTest < ActionController::TestCase
   setup do
-    @building = buildings(:one)
+    @building = FactoryGirl.create(:building_with_school_and_rooms)
+    @user = FactoryGirl.create(:complete_user)
+    sign_in @user
   end
 
   test "should get index" do
@@ -18,7 +20,7 @@ class BuildingsControllerTest < ActionController::TestCase
 
   test "should create building" do
     assert_difference('Building.count') do
-      post :create, building: { school_id: @building.school_id }
+      post :create, building: { name: "Test Building", school_id: @building.school_id }
     end
 
     assert_redirected_to building_path(assigns(:building))
@@ -35,7 +37,7 @@ class BuildingsControllerTest < ActionController::TestCase
   end
 
   test "should update building" do
-    patch :update, id: @building, building: { school_id: @building.school_id }
+    patch :update, id: @building, building: { name: "Test Building Name Change", school_id: @building.school_id }
     assert_redirected_to building_path(assigns(:building))
   end
 

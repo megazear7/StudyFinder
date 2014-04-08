@@ -2,7 +2,8 @@ require 'test_helper'
 
 class StudySessionsControllerTest < ActionController::TestCase
   setup do
-    @study_session = study_sessions(:one)
+    @study_session = FactoryGirl.create(:study_session_complete)
+    sign_in @study_session.user
   end
 
   test "should get index" do
@@ -12,38 +13,38 @@ class StudySessionsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    get :new, room_id: @study_session.room
     assert_response :success
   end
 
   test "should create study_session" do
     assert_difference('StudySession.count') do
-      post :create, study_session: { room_id: @study_session.room_id }
+      post :create, study_session: { name: "Test Summary", summary: "Test Summary", room_id: @study_session.room.id }, room_id: @study_session.room
     end
 
-    assert_redirected_to study_session_path(assigns(:study_session))
+    assert_redirected_to room_study_session_path(@study_session.room, assigns(:study_session))
   end
 
   test "should show study_session" do
-    get :show, id: @study_session
+    get :show, id: @study_session, room_id: @study_session.room
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @study_session
+    get :edit, id: @study_session, room_id: @study_session.room
     assert_response :success
   end
 
   test "should update study_session" do
-    patch :update, id: @study_session, study_session: { room_id: @study_session.room_id }
-    assert_redirected_to study_session_path(assigns(:study_session))
+    patch :update, id: @study_session, study_session: { name: "Test Summary", summary: "Test Summary", room_id: @study_session.room_id }, room_id: @study_session.room
+    assert_redirected_to room_study_session_path(@study_session, @study_session.room)
   end
 
   test "should destroy study_session" do
     assert_difference('StudySession.count', -1) do
-      delete :destroy, id: @study_session
+      delete :destroy, id: @study_session, room_id: @study_session.room
     end
 
-    assert_redirected_to study_sessions_path
+    assert_redirected_to room_path(@study_session.room)
   end
 end

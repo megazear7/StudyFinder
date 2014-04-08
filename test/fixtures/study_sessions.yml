@@ -5,3 +5,9 @@ one:
   name: Testing
   summary: Test summary of study session
   meeting_time: <%= DateTime.now %>
+
+two:
+  room_id: one
+  name: Testing
+  summary: Test summary of study session
+  meeting_time: <%= DateTime.now %>

@@ -38,6 +38,8 @@ gem 'active_link_to'
 # Use seed dump to make seed database
 gem 'seed_dump'
 
+gem "factory_girl_rails", "~> 4.0"
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
