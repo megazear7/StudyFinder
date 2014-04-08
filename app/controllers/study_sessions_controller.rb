@@ -25,6 +25,7 @@ class StudySessionsController < ApplicationController
   # GET /study_sessions/1
   # GET /study_sessions/1.json
   def show
+    @notes = @study_session.notes.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /study_sessions/new
