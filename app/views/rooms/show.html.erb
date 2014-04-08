@@ -5,6 +5,7 @@
 Create New Study Session In This Room: 
 <p><%= link_to 'Create Study Session', new_room_study_session_path(@room), :class =>"btn btn-primary" %><p/>
 
+<%= will_paginate @study_sessions, renderer: BootstrapPagination::Rails, class: "pull-right" %>
 <table class="table table-hover table-responsive">
 
   <thead>
@@ -27,6 +28,7 @@ Create New Study Session In This Room:
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @study_sessions, renderer: BootstrapPagination::Rails, class: "pull-right" %>
 
 <br/>
 

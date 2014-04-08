@@ -2,6 +2,7 @@
 
 <h3>Rooms in <%= @building.name %> at <%= link_to @building.school.name, @building.school %></h3>
 
+<%= will_paginate @rooms, renderer: BootstrapPagination::Rails, class: "pull-right" %>
 <table class="table table-hover table-responsive">
 
   <thead>
@@ -22,6 +23,7 @@
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @rooms, renderer: BootstrapPagination::Rails, class: "pull-right" %>
 
 <br/>
 

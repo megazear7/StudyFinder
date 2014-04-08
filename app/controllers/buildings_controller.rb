@@ -6,12 +6,12 @@ class BuildingsController < ApplicationController
   # GET /buildings.json
   def index
 
-    @buildings = Building.paginate(:page => params[:page], :per_page => 20)
+    @buildings = Building.paginate(:page => params[:page], :per_page => 10)
     @title = "All Available Buildings"
     @all = true
 
     if current_user and params[:all] != "true"
-      @buildings = Building.where(school_id: current_user.school.id).paginate(:page => params[:page], :per_page => 20)
+      @buildings = Building.where(school_id: current_user.school.id).paginate(:page => params[:page], :per_page => 10)
       @title = "Buildings at " + current_user.school.name
       @all = false
     end
@@ -21,6 +21,7 @@ class BuildingsController < ApplicationController
   # GET /buildings/1
   # GET /buildings/1.json
   def show
+    @rooms = @building.rooms.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /buildings/new

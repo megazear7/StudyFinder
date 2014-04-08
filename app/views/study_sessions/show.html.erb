@@ -15,6 +15,7 @@
 Add a Note to This Study Session:
 <p><%= link_to 'Create Note', new_room_study_session_note_path(@study_session.room, @study_session), :class => "btn btn-primary" %></p>
 
+<%= will_paginate @study_sessions, renderer: BootstrapPagination::Rails, class: "pull-right" %>
 <table class="table table-hover table-responsive">
 
 <thead>
@@ -37,6 +38,7 @@ Add a Note to This Study Session:
   <% end %>
 </tbody>
 </table>
+<%= will_paginate @study_sessions, renderer: BootstrapPagination::Rails, class: "pull-right" %>
 
 <br/>
 

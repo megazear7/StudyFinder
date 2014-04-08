@@ -5,12 +5,13 @@ class SchoolsController < ApplicationController
   # GET /schools
   # GET /schools.json
   def index
-    @schools = School.paginate(:page => params[:page], :per_page => 20)
+    @schools = School.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /schools/1
   # GET /schools/1.json
   def show
+      @buildings = @school.buildings.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /schools/new
