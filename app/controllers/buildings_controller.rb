@@ -29,7 +29,15 @@ class BuildingsController < ApplicationController
   # GET /buildings/1
   # GET /buildings/1.json
   def show
-    @rooms = @building.rooms.paginate(:page => params[:page], :per_page => 10)
+    @rooms = @building.rooms
+
+    @search = params[:search] ? params[:search] : ""
+
+    if not @search.empty?
+      @rooms = @rooms.search(@search)
+    end
+
+    @rooms = @rooms.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /buildings/new

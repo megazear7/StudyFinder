@@ -2,7 +2,23 @@
 
 <h3>Rooms in <%= @building.name %> at <%= link_to @building.school.name, @building.school %></h3>
 
-<%= will_paginate @rooms, renderer: BootstrapPagination::Rails, class: "pull-right" %>
+<div class="row">
+  <div class="col-md-8">
+    <br/>
+    <%= form_tag building_path(@building), :method => 'get' do %>
+      <div class="col-md-4">
+        <%= text_field_tag :search, params[:search], class: "string form-control" %>
+      </div>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+        <%= link_to "Reset", building_path(@building), :method => 'get', class: "btn btn-default" %>
+    <% end %>
+  </div>
+
+  <div class="col-md-4">
+    <%= will_paginate @rooms, renderer: BootstrapPagination::Rails, class: "pull-right" %>
+  </div>
+</div>
+
 <table class="table table-hover table-responsive">
 
   <thead>
@@ -14,7 +30,7 @@
   </thead>
 
   <tbody>
-    <% @building.rooms.each do |room| %>
+    <% @rooms.each do |room| %>
       <tr>
         <td><%= link_to room.room_number, room %></td>
         <td><%= link_to 'Edit', edit_room_path(room) %></td>
