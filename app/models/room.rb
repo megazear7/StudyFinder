@@ -3,10 +3,11 @@ class Room < ActiveRecord::Base
   has_many :study_sessions
 
   def self.search search
-    joins([:building]).where("
+    joins([:building => :school]).where("
         room_number LIKE ? OR 
-        LOWER(buildings.name) LIKE ?
-        ", "%#{search.downcase}%", "%#{search.downcase}%")
+        LOWER(buildings.name) LIKE ? OR
+        LOWER(schools.name) LIKE ?
+        ", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%")
   end
 
 end

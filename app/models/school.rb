@@ -4,4 +4,11 @@ class School < ActiveRecord::Base
   has_many :rooms, through: :buildings
   has_many :study_sessions, through: :buildings
   has_many :users
+
+  def self.search search
+    where("
+        LOWER(name) LIKE ?
+        ", "%#{search.downcase}%")
+  end
+
 end

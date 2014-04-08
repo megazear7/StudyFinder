@@ -7,15 +7,23 @@ class StudySessionsController < ApplicationController
   # GET /study_sessions
   # GET /study_sessions.json
   def index
-    @study_sessions = StudySession.paginate(:page => params[:page], :per_page => 10)
+    @study_sessions = StudySession.all
     @title = "All Available Study Sessions"
     @all = true
 
     if current_user and params[:all] != "true"
-      @study_sessions = current_user.school.study_sessions.paginate(:page => params[:page], :per_page => 10)
+      @study_sessions = current_user.school.study_sessions
       @title = "Study Sessions at " + current_user.school.name
       @all = false
     end
+
+    @search = params[:search] ? params[:search] : ""
+
+    if not @search.empty?
+      @study_sessions = @study_sessions.search(@search)
+    end
+
+    @study_sessions = @study_sessions.paginate(:page => params[:page], :per_page => 10)
 
   end
 

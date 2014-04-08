@@ -15,12 +15,13 @@
 <div class="row">
   <div class="col-md-8">
     <br/>
-    <%= form_tag rooms_path, :method => 'get' do %>
+    <%= form_tag rooms_path, :method => 'get', all: params[:all] do %>
       <div class="col-md-4">
         <%= text_field_tag :search, params[:search], class: "string form-control" %>
+        <%= hidden_field_tag :all, params[:all] %>
       </div>
         <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
-        <%= link_to "Reset", rooms_path, :method => 'get', class: "btn btn-default" %>
+        <%= link_to "Reset", rooms_path(all: params[:all]), :method => 'get', class: "btn btn-default" %>
     <% end %>
   </div>
 

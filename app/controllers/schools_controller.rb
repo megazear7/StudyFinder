@@ -5,7 +5,15 @@ class SchoolsController < ApplicationController
   # GET /schools
   # GET /schools.json
   def index
-    @schools = School.paginate(:page => params[:page], :per_page => 10)
+    @schools = School.all
+
+    @search = params[:search] ? params[:search] : ""
+
+    if not @search.empty?
+      @schools = @schools.search(@search)
+    end
+
+    @schools = @schools.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /schools/1

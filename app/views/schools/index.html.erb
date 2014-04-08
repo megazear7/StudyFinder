@@ -1,7 +1,22 @@
 <h3>All Available Schools:</h3>
 
+<div class="row">
+  <div class="col-md-8">
+    <br/>
+    <%= form_tag schools_path, :method => 'get' do %>
+      <div class="col-md-4">
+        <%= text_field_tag :search, params[:search], class: "string form-control" %>
+      </div>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+        <%= link_to "Reset", schools_path, :method => 'get', class: "btn btn-default" %>
+    <% end %>
+  </div>
 
-<%= will_paginate @schools, renderer: BootstrapPagination::Rails, class: "pull-right" %>   
+  <div class="col-md-4">
+    <%= will_paginate @schools, renderer: BootstrapPagination::Rails, class: "pull-right" %>
+  </div>
+</div>
+
 <table class="table table-hover table-responsive">
   <thead>
     <tr>
