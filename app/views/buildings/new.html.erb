@@ -1,8 +1,23 @@
-<h1>New building</h1>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Choose a school to add a building too:</h2> 
+  </div>
+</div>
 
-<%= link_to 'Back', buildings_path %>
-<br/>
 <br/>
 
-<%= render 'form' %>
-<br/>
+<div class="row">
+  <div class="col-md-12">
+    <div class="btn-toolbar">
+      <% School.all.each do |school| %>
+        <% if school == current_user.school %>
+          <%= link_to school.name, edit_school_path(school), class: "btn btn-success" %>
+        <% else %>
+          <%= link_to school.name, edit_school_path(school), class: "btn btn-info" %>
+        <% end %>
+      <% end %>
+    </div>
+    <br/>
+    <br/>
+  </div>
+</div>
