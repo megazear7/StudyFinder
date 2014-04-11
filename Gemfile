@@ -55,7 +55,7 @@ end
 group :production do
   # Heroku needs to use postgres
   gem 'pg'
-  gem 'rmagick', '2.13.2'
+  gem 'rmagick'
 end
 
 group :doc do
