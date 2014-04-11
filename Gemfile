@@ -37,6 +37,8 @@ gem 'will_paginate-bootstrap'
 # Use paperclip to upload files and images
 gem 'paperclip', '~> 4.1.1'
 
+gem 'rmagick', '2.13.2'
+
 # Use active link
 gem 'active_link_to'
 
