@@ -60,7 +60,7 @@ class NotesController < ApplicationController
   def destroy
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to room_study_session_url(@study_session, @study_session.room) }
+      format.html { redirect_to room_study_session_url(@study_session.room, @study_session) }
       format.json { head :no_content }
     end
   end
