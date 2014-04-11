@@ -12,7 +12,7 @@ $ git pull origin master
 
 $ sudo apt-get install imagemagick # this is a dependency of the paperclip gem
 
-$ bundle install --without production
+$ bundle install --without production  # there are TWO "-" before the word "without".
 
 $ rake db:migrate
 
