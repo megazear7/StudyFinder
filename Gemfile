@@ -34,6 +34,9 @@ gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 
+# Use paperclip to upload files and images
+gem 'paperclip', '~> 4.1.1'
+
 # Use active link
 gem 'active_link_to'
 

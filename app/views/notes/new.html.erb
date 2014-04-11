@@ -1,6 +1,6 @@
 <h1>New note</h1>
 
-<%= form_for @note, url: room_study_session_notes_path do |f| %>
+<%= form_for @note, url: room_study_session_notes_path, :html => { :multipart => true } do |f| %>
   <% if @note.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
@@ -21,6 +21,7 @@
     <div class="col-md-4">
       <%= f.label :summary %>
       <%= f.text_field :summary, :class => "string form-control" %>
+      <%= f.file_field :image %>
     </div>
   </div>
 

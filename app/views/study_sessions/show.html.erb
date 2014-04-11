@@ -30,10 +30,11 @@ Add a Note to This Study Session:
   <tbody>
     <% @notes.each do |note| %>
     <tr>
-      <td><%= note.summary %></td>
+      <td><%= link_to note.summary, room_study_session_note_path(note.study_session.room, note.study_session, note) %></td>
       <td><%= note.user.email %></td>
       <td><%= link_to 'Edit', edit_room_study_session_note_path(note.study_session.room, note.study_session, note) %></td>
       <td><%= link_to 'Destroy',  room_study_session_note_path(note.study_session.room, note.study_session, note), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= image_tag note.image.url(:thumb) %></td>
     </tr>
     <% end %>
   </tbody>
