@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407180253) do
+ActiveRecord::Schema.define(version: 20140411183020) do
 
   create_table "buildings", force: true do |t|
     t.integer  "school_id"
@@ -28,6 +28,10 @@ ActiveRecord::Schema.define(version: 20140407180253) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "notes", ["study_session_id"], name: "index_notes_on_study_session_id"
@@ -57,6 +61,7 @@ ActiveRecord::Schema.define(version: 20140407180253) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.datetime "meeting_time"
+    t.string   "subject"
   end
 
   add_index "study_sessions", ["room_id"], name: "index_study_sessions_on_room_id"
