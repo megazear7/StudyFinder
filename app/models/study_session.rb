@@ -3,6 +3,11 @@ class StudySession < ActiveRecord::Base
   belongs_to :user
   has_many :notes
 
+  validates :name, presence: true
+  validates :subject, presence: true
+  validates :summary, presence: true
+  validates :meeting_time, presence: true
+
   def self.search search
     joins([:room => [:building => :school]]).where("
         rooms.room_number LIKE ? OR 
