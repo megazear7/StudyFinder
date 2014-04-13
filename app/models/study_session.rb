@@ -7,6 +7,15 @@ class StudySession < ActiveRecord::Base
   validates :subject, presence: true
   validates :summary, presence: true
   validates :meeting_time, presence: true
+  
+  validate :meeting_time_cannot_be_in_the_past
+ 
+  def meeting_time_cannot_be_in_the_past
+    if meeting_time.present? && meeting_time < Date.today
+      errors.add(:meeting_time, "can't be in the past")
+    end
+  end
+ 
 
   def self.search search
     joins([:room => [:building => :school]]).where("
