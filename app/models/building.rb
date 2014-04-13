@@ -4,6 +4,8 @@ class Building < ActiveRecord::Base
   has_many :study_sessions, through: :rooms
   accepts_nested_attributes_for :rooms#, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
+  validates :name, presence: true
+
   def self.search search
     joins([:school]).where("
         LOWER(buildings.name) LIKE ? OR 
