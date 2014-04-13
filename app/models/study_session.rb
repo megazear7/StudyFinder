@@ -4,10 +4,12 @@ class StudySession < ActiveRecord::Base
   has_many :notes
 
   validates :name, presence: true
+  validates :name, length: { minimum: 5 }
   validates :subject, presence: true
+  validates :subject, length: { minimum: 5 }
   validates :summary, presence: true
+  validates :summary, length: { minimum: 5 }
   validates :meeting_time, presence: true
-  
   validate :meeting_time_cannot_be_in_the_past
  
   def meeting_time_cannot_be_in_the_past
