@@ -4,6 +4,7 @@ class Room < ActiveRecord::Base
   
   validates :room_number, presence: true
   validates :room_number, numericality: { only_integer: true, less_than_or_equal_to: 9999, greater_than_or_equal_to: 1}
+  validates :room_number, uniqueness: { case_sensitive: false }
 
   #validates :room_number, numericality: { }
   def self.search search
