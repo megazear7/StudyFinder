@@ -1,7 +1,7 @@
 StudyFinder::Application.routes.draw do
 
   devise_for :users
-  root 'schools#index'
+  root 'welcome#index'
 
   resources :rooms do
     resources :study_sessions do
