@@ -11,6 +11,7 @@ Create New Study Session In This Room:
   <thead>
     <tr>
       <th>Study Session Name</th>
+      <th>Subject</th>
       <th>Summary</th>
       <th>Edit</th>
       <th>Destroy</th>
@@ -22,6 +23,7 @@ Create New Study Session In This Room:
       <tr>
         <td><%= link_to study_session.name, room_study_session_path(study_session.room, study_session) %></td>
         <td><%= study_session.summary %></td>
+	<td><%= study_session.subject%></td>
         <td><%= link_to 'Edit', edit_room_study_session_path(study_session.room, study_session) %></td>
         <td><%= link_to 'Destroy',  room_study_session_path(study_session.room, study_session), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

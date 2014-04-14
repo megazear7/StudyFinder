@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h3>Study Session: <%= @study_session.name %></h3>
-
+<h3>Study Subject: <%= @study_session.subject %></h3>
 <p>
   <strong>Where: </strong>In room <%= link_to @study_session.room.room_number, @study_session.room %> in <%= link_to @study_session.room.building.name, @study_session.room.building %> at <%= link_to @study_session.room.building.school.name, @study_session.room.building.school %>
   <br/>

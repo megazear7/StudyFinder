@@ -3,7 +3,9 @@
 <p>
   <strong>Info In This Note:</strong>
   <%= @note.summary %>
-  <%= image_tag @note.image.url %>
+  <br/><br/>
+  <%= image_tag @note.image.url, width: '100%' %>
+  <br/><br/>
 </p>
 
 <%= link_to 'Edit', edit_room_study_session_note_path(@room, @study_session, @note) %> |
