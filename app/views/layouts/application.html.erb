@@ -13,30 +13,39 @@
   <br/>
 
   <div class="row">
+
     <div class="col-md-2 pull-left">
-      <%= link_to "Available Schools", schools_path, :method => :get %>
+      <%= link_to "Home", schools_path, :method => :get, "class" => "btn btn-primary" %>
     </div>
+
     <div class="col-md-2 pull-left">
-      <%= link_to "Available Buildings", buildings_path, :method => :get %>
+      <%= link_to "Schools", schools_path, :method => :get, "class" => "btn btn-primary" %>
     </div>
+
     <div class="col-md-2 pull-left">
-      <%= link_to "Available Rooms", rooms_path, :method => :get %>
+      <%= link_to "Buildings", buildings_path, :method => :get, "class" => "btn btn-primary" %>
     </div>
+
     <div class="col-md-2 pull-left">
-      <%= link_to "Available Study Sessions", all_study_sessions_path, :method => :get %>
+      <%= link_to "Rooms", rooms_path, :method => :get, "class" => "btn btn-primary" %>
     </div>
+
+    <div class="col-md-2 pull-left">
+      <%= link_to "Study Sessions", all_study_sessions_path, :method => :get, "class" => "btn btn-primary" %>
+    </div>
+
     <% if not current_user %>
-      <div class="col-md-3 pull-right">
-        <%= link_to "Login", new_user_session_path, :method => :get %> |
-        <%= link_to "Signup", new_user_registration_path, :method => :get %>
-      </div>
+    <div class="col-md-2 pull-left">
+      <%= link_to "Login", new_user_session_path, :method => :get, "class" => "btn btn-success btn-sm" %> |
+      <%= link_to "Signup", new_user_registration_path, :method => :get, "class" => "btn btn-success btn-sm" %>
+    </div>
     <% else %>
-      <div class="col-md-3 pull-right">
-        <%= current_user.email %>
-		<br/>
-        <%= link_to "Edit User Information", edit_user_registration_path, :method => :get %> |
-        <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
-      </div>
+    <div class="col-md-2 pull-left">
+      <%= current_user.email %>
+      <br/>
+      <%= link_to "Edit User Information", edit_user_registration_path, :method => :get, "class" => "btn btn-success btn-sm" %>
+      <%= link_to "Logout", destroy_user_session_path, :method => :delete, "class" => "btn btn-danger btn-sm" %>
+    </div>
     <% end %>
   </div>
 
