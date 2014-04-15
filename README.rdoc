@@ -1,11 +1,11 @@
 == Instructions for Grading This Project
 
-$ rake db:migrate
+ * rake db:migrate
 
-$ rake db:seed
+ * rake db:seed
 
-$ rails s
+ * rails s
 
- * Now you are free to start grading us!
+Now you are free to start grading us!
 
- * You can try adding pictures to notes, if you would like
+You can try adding pictures to notes, if you would like
