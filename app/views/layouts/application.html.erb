@@ -5,12 +5,79 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+  <style type="text/css">
+    .navbar {
+    background-color: #ADEBFF;
+    background-image: none;
+    background-repeat: no-repeat;
+    filter: none;
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
 
   <br/>
+
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <%= link_to "StudyFinder", root_path, :method => :get, "class" => "navbar-brand" %>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+         <li>
+	   <%= link_to "Schools", schools_path, :method => :get %>
+	 </li>
+
+         <li>
+	   <%= link_to "Buildings", buildings_path, :method => :get %>
+	 </li>
+
+	 <li>
+	   <%= link_to "Rooms", rooms_path, :method => :get %>
+	 </li>
+
+	 <li>
+	   <%= link_to "Study Sessions", all_study_sessions_path, :method => :get %>
+	 </li>
+	 
+	 <li>
+	   <p class="navbar-text">
+	     |
+	   </p>
+	 </li>
+
+     	 <% if not current_user %>
+	 <li>
+	   <p class="navbar-text">
+	     <%= link_to "Login", new_user_session_path, :method => :get, "class" => "navbar-link" %>
+	   </p>
+	 </li>
+
+	 <li>
+	   <p class="navbar-text">
+	     <%= link_to "Signup", new_user_registration_path, :method => :get, "class" => "navbar-link" %>
+	   </p>
+	 </li>
+	 <% else %>	 
+	 <li>
+	   <p class="navbar-text">
+	     <%= link_to current_user.email, edit_user_registration_path, :method => :get, "class" => "navbar-link" %>
+	   </p>
+	 </li>
+	 
+	 <li>
+	   <p class="navbar-text">
+	     <%= link_to "Logout", destroy_user_session_path, :method => :delete, "class" => "navbar-link" %>
+	   </p>
+	 </li>
+	 <% end %>
+      </ul>
+   </div>
+</nav>
+<!--
 
   <div class="row">
 
@@ -48,7 +115,7 @@
     </div>
     <% end %>
   </div>
-
+-->
   <br/>
 
   <div class="row">
