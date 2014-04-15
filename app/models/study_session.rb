@@ -6,7 +6,7 @@ class StudySession < ActiveRecord::Base
   validates :name, presence: true
   validates :name, length: { minimum: 5 }
   validates :subject, presence: true
-  validates :subject, length: { minimum: 5 }
+  validates :subject, length: { minimum: 2 }
   validates :summary, presence: true
   validates :summary, length: { minimum: 5 }
   validates :meeting_time, presence: true
