@@ -1,8 +1,21 @@
-<h1>Welcome!</h1>
+<h1>Welcome to StudyFinder!</h1>
 
-<h3>What is StudyFinder?</h3>
-<p>StudyFinder is a collection of study sessions from students at schools across the state of Ohio.</p>
+<hr/>
+
+<h3>What is it?</h3>
+<p>StudyFinder is a collection of study sessions from students at schools across the state of Ohio. Its aim is to make it easier for students to find study groups for their classes and even get notes from a class they may have missed. Even if your school is not represented yet, it can always be added.</p>
 
 <h3>How do I use it?</h3>
 <p>Start by signing up for an account, or signing in if you already have one. Once you're logged in, you can search for current study sessions at your school by subject, building, room, or even owners of those sessions. Each study session allows for notes, comments, and even pictures to be added that are related to the subject or class it covers.</p>
-<p>If you don't see a group that wants to get together to discuss a subject or class that you want, create your own!</p>
+<p>If you don't see a group that wants to get together to discuss a subject or class that you want, create your own! You can look through the available buildings and rooms at your school and pick from there, or add them if they're not there yet. When creating a study session, pick a descriptive name, the subject to be studied, a small summary of what you want, and the time to meet. Information can always be changed later. Once the session is created, notes can be added for discussion or collecting important documents to be used at that session.</p>
+<p>Only you can delete the sessions you have made, so you don't need to worry about it being removed without your permission.</p>
+
+<hr/>
+
+<% if current_user %>
+<h3>Your school is <%= current_user.school.name %>. To start finding study sessions at your school, go <%= link_to "here", all_study_sessions_path, :method => :get %>!</h3>
+<% else %>
+<h3>You are not signed in. Register <%= link_to "here", new_user_registration_path, :method => :get %> to see some study sessions at your school!</h3>
+<% end %>
+
+<hr/>
