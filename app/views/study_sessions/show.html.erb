@@ -33,7 +33,11 @@
       <td><%= note.user.email %></td>
       <td><%= link_to 'Edit', edit_room_study_session_note_path(note.study_session.room, note.study_session, note) %></td>
       <td><%= link_to 'Destroy',  room_study_session_note_path(note.study_session.room, note.study_session, note), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <td><%= image_tag note.image.url(:thumb) %></td>
+	  <% if note.image.url.last(11) != "missing.png" %>
+		  <td><%= image_tag note.image.url(:thumb) %></td>
+	  <% else %>
+	  	<td><td/>
+	  <% end %>
     </tr>
     <% end %>
   </tbody>
