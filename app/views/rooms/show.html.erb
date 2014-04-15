@@ -2,7 +2,6 @@
 
 <h3>Room <%= @room.room_number %> in <%= link_to @room.building.name, @room.building %> at <%= link_to @room.building.school.name, @room.building.school %></h3>
 
-Create New Study Session In This Room: 
 <p><%= link_to 'Create Study Session', new_room_study_session_path(@room), :class =>"btn btn-primary" %><p/>
 
 <%= will_paginate @study_sessions, renderer: BootstrapPagination::Rails, class: "pull-right" %>
@@ -36,3 +35,5 @@ Create New Study Session In This Room:
 
 <%= link_to 'Edit Room', edit_room_path(@room) %> |
 <%= link_to 'Back To Available ' + @room.building.name  + ' Rooms', building_path(@room.building) %>
+<br/>
+<br/>
