@@ -7,6 +7,8 @@ class School < ActiveRecord::Base
 
   validates :name, presence: true
   validates :name, uniqueness: { case_sensitive: false }
+  validates :name, exclusion: { in: %w(anal anus arse ass ballsack balls bastard bitch biatch bloody blowjob blow job bollock bollok boner boob bugger bum butt buttplug clitoris cock coon crap cunt damn dick dildo dyke fag feck fellate fellatio felching fuck fudgepacker flange goddamn hell homo jerk jizz knobend labia lmao lmfao muff nigger nigga omg penis piss poop pube pussy queer scrotum sex shit sh1t slut smegma spunk tit tosser turd twat vagina wank whore wtf),
+    message: "%{value} is a naughty, naughty word." }
 
   def self.search search
     where("
