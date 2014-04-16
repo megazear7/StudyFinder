@@ -20,7 +20,7 @@
   <div class="col-md-12">
     <div class="btn-toolbar">
       <% @buildings.each do |building| %>
-        <%= link_to building.name, edit_building_path(building), class: "btn btn-info" %>
+        <%= link_to building.name, edit_building_path(building), class: "btn btn-info sep" %>
       <% end %>
     </div>
     <br/>

@@ -11,9 +11,9 @@
     <div class="btn-toolbar">
       <% School.all.each do |school| %>
         <% if school == current_user.school %>
-          <%= link_to school.name, edit_school_path(school), class: "btn btn-success" %>
+          <%= link_to school.name, edit_school_path(school), class: "btn btn-success sep" %>
         <% else %>
-          <%= link_to school.name, edit_school_path(school), class: "btn btn-info" %>
+          <%= link_to school.name, edit_school_path(school), class: "btn btn-info sep" %>
         <% end %>
       <% end %>
     </div>
