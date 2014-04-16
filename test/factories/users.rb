@@ -14,7 +14,7 @@ FactoryGirl.define do
     end
 
     factory :user_without_school do
-      email "test@test.com"
+      email "test3@test.com"
       password "changeme"
     end
 

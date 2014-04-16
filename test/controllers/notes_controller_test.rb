@@ -21,7 +21,7 @@ class NotesControllerTest < ActionController::TestCase
       post :create, note: { summary: "Test Summary" }, study_session_id: @note.study_session_id, room_id: @note.study_session.room, study_session_id: @study_session, room_id: @study_session.room
     end
 
-    assert_redirected_to room_study_session_path(assigns(:note).study_session, assigns(:note).study_session.room)
+    assert_redirected_to room_study_session_path(assigns(:note).study_session.room, assigns(:note).study_session)
   end
 
   test "should show note" do
@@ -36,7 +36,7 @@ class NotesControllerTest < ActionController::TestCase
 
   test "should update note" do
     patch :update, id: @note, study_session_id: @note.study_session, room_id: @note.study_session.room, note: { summary: "Test Summary Changed", study_session_id: @note.study_session_id }
-    assert_redirected_to room_study_session_path(assigns(:note).study_session, assigns(:note).study_session.room)
+    assert_redirected_to room_study_session_path(assigns(:note).study_session.room, assigns(:note).study_session)
   end
 
   test "should destroy note" do
@@ -44,6 +44,6 @@ class NotesControllerTest < ActionController::TestCase
       delete :destroy, id: @note, study_session_id: @note.study_session, room_id: @note.study_session.room
     end
 
-    assert_redirected_to room_study_session_path(@study_session, @study_session.room)
+    assert_redirected_to room_study_session_path(@study_session.room, @study_session)
   end
 end

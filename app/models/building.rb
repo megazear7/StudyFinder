@@ -5,7 +5,6 @@ class Building < ActiveRecord::Base
   accepts_nested_attributes_for :rooms#, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
   validates :name, presence: true
-  validates :name, uniqueness: { case_sensitive: false }
   def self.search search
     joins([:school]).where("
         LOWER(buildings.name) LIKE ? OR 

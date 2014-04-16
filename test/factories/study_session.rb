@@ -3,6 +3,7 @@ FactoryGirl.define do
     name "Test Study Session"
     summary "Test Study Session summary"
     meeting_time DateTime.now
+    subject "test"
 
     factory :study_session_complete do
       association :room, factory: :room_complete

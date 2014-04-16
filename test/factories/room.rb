@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :room do
-    room_number 111
+    room_number 133
 
     factory :room_complete do
       association :building, factory: :building_with_school_and_rooms
